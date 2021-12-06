@@ -28,8 +28,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
   gem 'pry-rails'
-  gem 'awesome_print'
   gem 'rspec-rails'
+  gem 'awesome_print', :require => 'ap'
 end
 
 group :development do
