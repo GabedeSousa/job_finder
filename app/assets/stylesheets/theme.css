@@ -94,3 +94,13 @@ footer p {
   margin: 0px;
   line-height: 30px;
 }
+
+.post-position {
+  border: 1px solid #fff;
+  border-radius: 3px;
+}
+
+.post-position {
+  background-color: #f5f7fb;
+  color: black !important;
+}
