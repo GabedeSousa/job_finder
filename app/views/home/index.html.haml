@@ -2,19 +2,23 @@
   %h1 Job Finder 
   %p Job Openings Mural.
 
-%form 
-  .row 
-    .col-sm 
-      %label Career 
-      %input.form-control{:placeholder => "First Name", :type => "text"}/
+= search_form_for @q, url: root_path do |f|
+  .row
     .col-sm
-      %label Location 
-      %input.form-control{:placeholder => "last Name", :type => "text"}/
+      .form-group
+        = f.label :name_cont, "Carreira"
+        = f.search_field :name_cont, class: 'form-control'
     .col-sm
-      %label Work Location 
-      %input.form-control{:placeholder => "Last Name", :type => "text"}/
+      .form-group
+        = f.label :contract_eq, "Modalidade"
+        = f.select :contract_eq, options_from_collection_for_select(@contracts, :second, :first, @q.contract_eq), { include_blank: true }, { class: 'form-control' }
     .col-sm
-      %button.btn.btn-danger{:type => "submit", style: 'margin-top: 31px;'} Search
+      .form-group
+        = f.label :state_eq, "Localidade"
+        = f.select :state_eq, options_from_collection_for_select(Brazil.states, :first, :second, @q.state_eq), { include_blank: true }, { class: 'form-control' }
+
+    .col-sm
+      %button.btn.btn-danger{type: 'submit', style: 'margin-top: 31px;'} Pesquisar
 
 - @positions.each do |position|
   = render position
