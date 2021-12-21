@@ -21,7 +21,7 @@ gem 'haml-rails', '~> 2.0'
 
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
-# gem 'ransack'
+gem 'ransack'
 # gem 'select2-rails'
 
 group :development, :test do
