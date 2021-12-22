@@ -10,8 +10,8 @@
           %p Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam officia porro ab, nihil quis earum ratione repudiandae, ipsam neque quidem iusto commodi ipsum dolor cumque repellat fugiat corporis voluptatibus eaque.
           .row
             .col-sm.mt-3
-              %button.btn.btn-danger{:type => "button"} See More
-              %button.btn.btn-success{:type => "button"} Apply
+              = link_to 'Ver Mais', public_position_path(position.slug), class: 'btn btn-danger'
+              = link_to 'Aplicar', public_position_path(position.slug), class: 'btn btn-success'
             .col-sm.text-right.mt-3.group-social-network
               = link_to image_tag('social-network/linkedin.svg', alt: 'Icone do Linkedin', height: '32', width: '32'), "https://www.linkedin.com/sharing/share-offsite/?url=#{public_url_position(position)}"
               = link_to image_tag('social-network/whatsapp.svg', alt: 'Icone do Whatsapp', height: '32', width: '32'), "https://wa.me/?text=#{text_position(position)}"
