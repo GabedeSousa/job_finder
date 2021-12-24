@@ -1,5 +1,5 @@
 class PositionsController < ApplicationController
-  before_action :set_company, :set__i18n_careers, :set_i18n_contracts
+  before_action :set_company, :set__i18n_careers, :set_i18n_contracts, except: [:public_position]
   before_action :set_position, only: [:edit, :show, :update]
 
   def index
@@ -34,6 +34,11 @@ class PositionsController < ApplicationController
     end
   end
 
+  def public_position
+    @position = Position.find_by(slug: params[:slug])
+    @applicant = current_user.applicants.new(position_id: @position.id)
+  end
+
   private
 
   def set_position
@@ -45,6 +50,7 @@ class PositionsController < ApplicationController
   end
 
   def set_company
+    #we only allow the user to create a new position if there's a registered company already
     redirect_to new_company_path if current_user.company.nil?
     @company = current_user.company
   end
