@@ -6,6 +6,7 @@ class Position < ApplicationRecord
   has_rich_text :description
   validates :name, :career, :contract, :city, :state, :summary, presence: true
   before_save :set_slug
+  has_many :applicants
 
   private  
 
